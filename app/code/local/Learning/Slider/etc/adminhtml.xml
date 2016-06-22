@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<config>
+    <menu>
+        <learning_slider translate="title" module="learning_slider">
+            <title>Slider</title>
+            <sort_order>70</sort_order>
+            <children>
+                <slider_slide translate="title" module="learning_slider">
+                    <title>Manage Slides</title>
+                    <action>adminhtml/slider_slide</action>
+                    <sort_order>0</sort_order>
+                </slider_slide>
+            </children>
+        </learning_slider>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <learning_slider>
+                        <children>
+                            <slider_slide translate="title" module="learning_slider">
+                                <title>Manage Slides</title>
+                                <sort_order>0</sort_order>
+                            </slider_slide>
+                        </children>
+                    </learning_slider>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

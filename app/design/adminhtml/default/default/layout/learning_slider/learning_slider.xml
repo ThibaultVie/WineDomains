@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<layout>
+
+    <!-- SLIDER SLIDES -->
+
+    <adminhtml_slider_slide_index>
+        <reference name="content">
+            <block type="learning_slider/adminhtml_slide" name="learning_slider_adminhtml_slide"></block>
+        </reference>
+    </adminhtml_slider_slide_index>
+
+    <adminhtml_slider_slide_edit>
+        <reference name="content">
+            <block type="learning_slider/adminhtml_slide_edit" name="learning_slider_adminhtml_slide_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="learning_slider/adminhtml_slide_edit_tabs" name="learning_slider_adminhtml_slide_edit_tabs">
+                <block type="learning_slider/adminhtml_slide_edit_tab_form" name="learning_slider_adminhtml_slide_edit_tab_form" />
+                <action method="addTab">
+                    <name>main_section</name>
+                    <block>learning_slider_adminhtml_slide_edit_tab_form</block>
+                </action>
+            </block>
+        </reference>
+    </adminhtml_slider_slide_edit>
+
+</layout>
