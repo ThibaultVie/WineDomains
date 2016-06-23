@@ -40,6 +40,7 @@ class Learning_Domain_Block_Adminhtml_Domain_Edit_Tab_Form extends Mage_Adminhtm
             'required' => true,
         ));
 
+        //Fixed
         $fieldset->addField('grape', 'text', array(
             'label'    => Mage::helper('learning_domain')->__('Grape'),
             'class'    => 'required-entry',
