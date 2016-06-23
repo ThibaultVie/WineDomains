@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Learning_Domain>
-            <version>0.1.0</version>
+            <version>0.1.1</version>
         </Learning_Domain>
     </modules>
     <global>
@@ -28,6 +28,9 @@
                     <domain>
                         <table>learning_domain_domain</table>
                     </domain>
+                    <domain_product>
+                        <table>learning_domain_domain_product</table>
+                    </domain_product>
                 </entities>
             </learning_domain_resource>
         </models>

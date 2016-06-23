@@ -73,6 +73,10 @@ class Learning_Domain_Adminhtml_Domain_DomainController extends Mage_Adminhtml_C
 
             try {
                 $domain->addData($data);
+                $products = $this->getRequest()->getPost('products', -1);
+                if ($products != -1) {
+                    $domain->setProductsData(Mage::helper('adminhtml/js')->decodeGridSerializedInput($products));
+                }
                 $domain->save();
 
                 Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('learning_domain')->__('The domain has been saved.'));
@@ -203,4 +207,41 @@ class Learning_Domain_Adminhtml_Domain_DomainController extends Mage_Adminhtml_C
         }
         return $image;
     }
+
+    public function productsAction(){
+        $this->_initDomain(); //if you don't have such a method then replace it with something that will get you the entity you are editing.
+        $this->loadLayout();
+        $this->getLayout()->getBlock('domain.edit.tab.product')
+            ->setDomainProducts($this->getRequest()->getPost('domain_products', null));
+        $this->renderLayout();
+    }
+
+    /**
+     *
+     */
+    public function productsgridAction(){
+        $this->_initDomain();
+        $this->loadLayout();
+        $this->getLayout()->getBlock('domain.edit.tab.product')
+            ->setDomainProducts($this->getRequest()->getPost('domain_products', null));
+        $this->renderLayout();
+    }
+
+    /**
+     * @param string $param
+     * @return Mage_Core_Model_Abstract
+     * @throws Mage_Core_Exception
+     */
+    public function _initDomain($param = 'id'){
+        $domainEntity = Mage::getModel('learning_domain/domain');
+        if ($entityId = $this->getRequest()->getParam($param)) {
+            $domain = $domainEntity->load($entityId);
+            if (!$domainEntity->getId()) {
+                Mage::throwException($this->__('Wrong domain'));
+            }
+        }
+        Mage::register('domain_data', $domain);
+        return $domain;
+    }
+
 }
