@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <learning_domain_index_index>
+
+        <reference name="content">
+            <block type="learning_domain/domain"  name="learning_domain.domain" template="learning/domain.phtml" />
+        </reference>
+
+    </learning_domain_index_index>
+
+</layout>
