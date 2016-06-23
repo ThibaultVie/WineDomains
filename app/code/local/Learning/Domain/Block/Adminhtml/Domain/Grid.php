@@ -48,15 +48,8 @@ class Learning_Domain_Block_Adminhtml_Domain_Grid extends Mage_Adminhtml_Block_W
             'index'  => 'domain_name'
         ));
 
-        /*$this->addColumn('image_url', array(
-            'header' => $this->__('image_url'),
-            'align'  => 'right',
-            'width'  => '100px',
-            'index'  => 'image_url'
-        ));*/
-
         $this->addColumn('is_active', array(
-            'header'  => $this->__('Status'),
+            'header'  => $this->__('Is Active'),
             'index'   => 'is_active',
             'type'    => 'options',
             'options' => Mage::getSingleton('adminhtml/system_config_source_yesno')->toArray(),
@@ -64,12 +57,6 @@ class Learning_Domain_Block_Adminhtml_Domain_Grid extends Mage_Adminhtml_Block_W
             'width'   => '100px'
         ));
 
-        $this->addColumn('position', array(
-            'header' => $this->__('Position'),
-            'align'  => 'right',
-            'width'  => '100px',
-            'index'  => 'position'
-        ));
 
         return parent::_prepareColumns();
     }
