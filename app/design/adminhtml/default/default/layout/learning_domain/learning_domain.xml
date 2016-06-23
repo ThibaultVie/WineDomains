@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<layout>
+
+    <!-- SLIDER SLIDES -->
+
+    <adminhtml_domain_domain_index>
+        <reference name="content">
+            <block type="learning_domain/adminhtml_domain" name="learning_domain_adminhtml_domain"></block>
+        </reference>
+    </adminhtml_domain_domain_index>
+
+    <adminhtml_domain_domain_edit>
+        <reference name="content">
+            <block type="learning_domain/adminhtml_domain_edit" name="learning_domain_adminhtml_domain_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="learning_domain/adminhtml_domain_edit_tabs" name="learning_domain_adminhtml_domain_edit_tabs">
+                <block type="learning_domain/adminhtml_domain_edit_tab_form" name="learning_domain_adminhtml_domain_edit_tab_form" />
+                <action method="addTab">
+                    <name>main_section</name>
+                    <block>learning_domain_adminhtml_domain_edit_tab_form</block>
+                </action>
+            </block>
+        </reference>
+    </adminhtml_domain_domain_edit>
+
+</layout>

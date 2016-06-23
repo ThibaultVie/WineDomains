@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <learning_domain translate="title" module="learning_domain">
+            <title>Domains</title>
+            <sort_order>70</sort_order>
+            <children>
+                <domain_domain translate="title" module="learning_domain">
+                    <title>Manage Domains</title>
+                    <action>adminhtml/domain_domain</action>
+                    <sort_order>0</sort_order>
+                </domain_domain>
+            </children>
+        </learning_domain>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <learning_domain>
+                        <children>
+                            <domain_domain translate="title" module="learning_domain">
+                                <title>Manage Domains</title>
+                                <sort_order>0</sort_order>
+                            </domain_domain>
+                        </children>
+                    </learning_domain>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
