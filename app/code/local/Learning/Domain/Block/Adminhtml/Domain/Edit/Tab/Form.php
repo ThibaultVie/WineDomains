@@ -2,6 +2,14 @@
 
 class Learning_Domain_Block_Adminhtml_Domain_Edit_Tab_Form extends Mage_Adminhtml_Block_Widget_Form implements Mage_Adminhtml_Block_Widget_Tab_Interface
 {
+    protected function _prepareLayout()
+    {
+        $return = parent::_prepareLayout();
+        if (Mage::getSingleton('cms/wysiwyg_config')->isEnabled()) {
+            $this->getLayout()->getBlock('head')->setCanLoadTinyMce(true);
+        }
+        return $return;
+    }
 
     protected function _prepareForm()
     {
@@ -55,6 +63,15 @@ class Learning_Domain_Block_Adminhtml_Domain_Edit_Tab_Form extends Mage_Adminhtm
             'values'   => Mage::getSingleton('adminhtml/system_config_source_enabledisable')->toOptionArray(),
             'required' => true
         ));
+        $fieldset->addField('description', 'editor',
+            array(
+                'name' => 'description',
+                'label' => Mage::helper('learning_domain')->__('Description'),
+                'title' => Mage::helper('learning_domain')->__('Description'),
+                'style' => 'height:36em;',
+                'config' => Mage::getSingleton('cms/wysiwyg_config')->getConfig(),
+                'required' => true)
+        );
 
         if (Mage::getSingleton('adminhtml/session')->getDomainData()) {
             $form->setValues(Mage::getSingleton('adminhtml/session')->getDomainData());

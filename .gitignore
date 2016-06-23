@@ -40,3 +40,4 @@ Thumbs.db
 # Devlopment files #
 ####################
 .idea/*
+var/cache/*
