@@ -13,4 +13,7 @@ class Learning_Domain_Helper_Data extends Mage_Core_Helper_Abstract
     {
         return Mage::getBaseUrl('media') . self::IMAGE_FOLDER . '/' . $filename;
     }
+    public function getTest(){
+        return Mage::getModel('catalog/product')->getProductInstance();
+    }
 }
