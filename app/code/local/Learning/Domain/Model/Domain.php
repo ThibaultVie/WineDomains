@@ -20,19 +20,22 @@ class Learning_Domain_Model_Domain extends Mage_Core_Model_Abstract
         $this->_init('learning_domain/domain');
     }
 
-    public function getProductInstance(){
+    public function getProductInstance()
+    {
         if (!$this->_productInstance) {
             $this->_productInstance = Mage::getSingleton('learning_domain/domain_product');
         }
         return $this->_productInstance;
     }
 
-    protected function _afterSave() {
+    protected function _afterSave()
+    {
         $this->getProductInstance()->saveDomainRelation($this);
         return parent::_afterSave();
     }
 
-    public function getSelectedProducts(){
+    public function getSelectedProducts()
+    {
         if (!$this->hasSelectedProducts()) {
             $products = array();
             foreach ($this->getSelectedProductsCollection() as $product) {
@@ -43,8 +46,16 @@ class Learning_Domain_Model_Domain extends Mage_Core_Model_Abstract
         return $this->getData('selected_products');
     }
 
-    public function getSelectedProductsCollection(){
+    public function getSelectedProductsCollection()
+    {
         $collection = $this->getProductInstance()->getProductCollection($this);
         return $collection;
+    }
+
+    public function getDomainByProductId($id)
+    {
+        $_ressource = $this->_getResource();
+        $_ressource->getInstanceByProductId($this, $id);
+        return $this;
     }
 }

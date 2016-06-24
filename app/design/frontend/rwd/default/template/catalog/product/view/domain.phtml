@@ -1,2 +1,14 @@
 <?php
-echo $this->getAssociatedDomain();
+//Zend_debug::dump($this->getAssociatedDomain()->getData());
+$domain = $this->getAssociatedDomain();
+//echo $this->getAssociatedDomain();
+?>
+<h1><?php echo $domain->getDomainName(); ?></h1>
+
+<div>
+    <ul>
+        <li>AOC : <?php echo $domain->getAoc() ?></li>
+        <li>Propriétaire : <?php echo $domain->getOwner(); ?></li>
+        <li><h4>Decription :</h4><?php echo $domain->getDescription(); ?></li>
+    </ul>
+</div>
