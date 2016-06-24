@@ -41,3 +41,6 @@ Thumbs.db
 ####################
 .idea/*
 var/cache/*
+var/session/*
+var/report/*
+var/log/*
