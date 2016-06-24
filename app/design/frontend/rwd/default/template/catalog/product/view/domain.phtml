@@ -3,12 +3,20 @@
 $domain = $this->getAssociatedDomain();
 //echo $this->getAssociatedDomain();
 ?>
+<?php if(isset($domain)): ?>
 <h1><?php echo $domain->getDomainName(); ?></h1>
 
 <div>
     <ul>
-        <li>AOC : <?php echo $domain->getAoc() ?></li>
-        <li>Propriétaire : <?php echo $domain->getOwner(); ?></li>
-        <li><h4>Decription :</h4><?php echo $domain->getDescription(); ?></li>
+        <?php if (!empty($domain->getAoc())): ?>
+            <li>AOC : <?php echo $domain->getAoc() ?></li>
+        <?php endif; ?>
+        <?php if (!empty($domain->getOwner())): ?>
+            <li>Propriétaire : <?php echo $domain->getOwner(); ?></li>
+        <?php endif; ?>
+        <?php if (!empty($domain->getDescription())): ?>
+            <li><h4>Description :</h4><?php echo $domain->getDescription(); ?></li>
+        <?php endif; ?>
     </ul>
 </div>
+<?php endif; ?>
